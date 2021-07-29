@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
-namespace HashFrequency_Day15
+namespace Day_15_HashTable
 {
-
-    class MyMapNode<K, V>
+    public class MyMapNode<K, V>
     {
         public readonly int size;
         private readonly LinkedList<KeyValue<K, V>>[] items;
@@ -52,6 +52,28 @@ namespace HashFrequency_Day15
                 items[position] = linkedList;
             }
             return linkedList;
+        }
+
+        public void Remove(K key)
+        {
+            int position = GetArrayPosition(key);
+            LinkedList<KeyValue<K, V>> linkedList = GetLinkedList(position);
+            bool itemFound = false;
+            KeyValue<K, V> foundItem = default(KeyValue<K, V>);
+            foreach (KeyValue<K, V> item in linkedList)
+            {
+                if (item.key.Equals(key))
+                {
+                    itemFound = true;
+                    foundItem = item;
+                }
+                if (itemFound)
+                {
+                    Console.WriteLine("Item Removed " + foundItem.key);
+                    linkedList.Remove(foundItem);
+                    break;
+                }
+            }
         }
 
         public struct KeyValue<Ke, Va>

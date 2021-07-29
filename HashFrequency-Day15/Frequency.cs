@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
-namespace HashFrequency_Day15
+namespace Day_15_HashTable
 {
-    class Frequency
+    public class Frequency
     {
         Dictionary<string, int> frequency = new Dictionary<string, int>();
-        public void Freqncy(MyMapNode<int, string> hash)
+        public void Frequency1(MyMapNode<int, string> hash)
         {
             for (int key = 0; key < hash.size; key++)
             {
@@ -15,8 +16,8 @@ namespace HashFrequency_Day15
             }
             foreach (KeyValuePair<string, int> item in frequency)
             {
-                Console.WriteLine("Frequency of word " + item.Key + " is : " + item.Value);
-                
+                Console.WriteLine($"Frequency of word {item.Key} is {item.Value}");
+                Console.WriteLine();
             }
         }
     }
