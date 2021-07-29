@@ -7,6 +7,7 @@ namespace HashFrequency_Day15
     {
         static void Main()
         {
+            Console.WriteLine("Hash Table Implememtation");
             Console.WriteLine("<--------Welcome to Hash Table Program-------->");
             Console.WriteLine("-----------------------------------------------");
             MyMapNode<string, string> hash = new MyMapNode<string, string>(5);
